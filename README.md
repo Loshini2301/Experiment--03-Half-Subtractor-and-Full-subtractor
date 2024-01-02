@@ -1,5 +1,7 @@
 # Experiment--03-Half-Subtractor-and-Full-subtractor
 ## Implementation-of-Half-subtractor-and-Full-subtractor-circuit
+## Name:Loshini.G
+## Reference no:212223220051
 ## AIM:
 To design a half subtractor and full subtractor circuit and verify its truth table in Quartus using Verilog programming.
 
@@ -27,28 +29,80 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
 
+## 1.	Create a New Project:
+Open Quartus and create a new project by selecting "File" > "New Project Wizard."
+Follow the wizard's instructions to set up your project, including specifying the project name, location, and target device (FPGA).
+## 2.	Create a New Design File:
 
+Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+## 3.	Write the Combinational Logic Code:
 
-Write the detailed procedure here 
+Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+## 4.	Compile the Project:
+To compile the project, click on "Processing" > "Start Compilation" in the menu.
+Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+## 5.	Analyze and Fix Errors:
+
+If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+Review and fix any issues in your code if necessary.
+View the RTL diagram.
+## 6.	Verification:
+Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+ 
+Give the Input Combinations according to the Truth Table amd then simulate the Output Waveform.
+
 
 
 ## Program:
 /*
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Loshini.G
+RegisterNumber:  212223220051
+## Half Subtracter:
+module halfsub(x,y,d,b);
+input x,y;
+output d,b;
+wire z;
+xor(d,x,y);
+not(z,x);
+and(b,z,y);
+endmodule
+
+## Full Subtracter:
+module fullsub(input x,y,z ,output d,b);
+//input x,y;
+//output z;
+assign zd = x^y^z;
+assign b = ~x & (y^z) | y&z;
+endmodule
 */
 
-## Output:
-
-## Truthtable
-
-
-
-##  RTL realization
+## Truthtable:
+## Half Subtracter:
+![HALF SUB TRUTH](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/dd216b7d-c577-4214-9c8e-90ae478b14da)
 
 
-## Timing diagram 
+## Full Subtracter:
+![full sub truth](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/c39c3ba0-69af-42f2-aebb-2a65eadf7a4d)
+
+##  RTL realization:
+## Half Subtracter:
+![half add rtl](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/91c6e0fb-a46a-4c3c-8077-43dd07f56d99)
+
+## Full Subtracter:
+![full sub rtl](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/6ec5ee85-af14-4276-8149-a71008d07ca8)
+
+## Timing diagram:
+## Half Subtracter:
+![halfsub wf](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/06cdd862-9468-4567-82b2-d5aac790ffe3)
+
+## Full Subtracter:
+![full sub wf](https://github.com/Loshini2301/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/150007305/7bdcd082-c86b-4f5a-8e63-21468579e148)
+
+
+
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
